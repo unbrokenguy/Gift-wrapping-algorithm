@@ -9,11 +9,20 @@ public class Peak{
         this.y = y;
     }
 
+    @Override
+    public String toString(){
+        return "Peak{" + "x=" + x + ", y=" + y + '}';
+    }
+
     public int x(){
         return x;
     }
 
     public int y(){
         return y;
+    }
+
+    public boolean equals(Peak peak){
+        return this.x() == peak.x() && this.y() == peak.y();
     }
 }
