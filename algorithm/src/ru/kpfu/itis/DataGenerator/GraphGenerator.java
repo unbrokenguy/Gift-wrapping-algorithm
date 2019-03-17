@@ -10,7 +10,7 @@ import java.util.Set;
 public class GraphGenerator implements Generator<String>{
     @Override
     public String generate(){
-        int range = new Random().nextInt(901) + 100;
+        int range = new Random().nextInt(9901) + 100;
         return generate(range);
     }
 
@@ -18,7 +18,7 @@ public class GraphGenerator implements Generator<String>{
     public String generate(int range){
         HashSet<Peak> set = new HashSet<>();
         for(int i = 0; i < range; ){
-            Peak temp = new Peak(new Random().nextInt(1001), new Random().nextInt(1001));
+            Peak temp = new Peak(new Random().nextInt(1001), new Random().nextInt(101));
             if(set.add(temp))
                 i++;
         }

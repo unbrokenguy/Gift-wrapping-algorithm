@@ -12,13 +12,19 @@ public class Jarvis{
 
     public static void main(InputStream cin) throws IOException{
         GraphParser gp = new GraphParser().data(cin);
-        FileWriter fw = new FileWriter("ConvexHull.csv", true);
+        FileWriter fw = new FileWriter("Documents/ConvexHull.csv", true);
+        FileWriter fw1 = new FileWriter("Documents/ConvexHull.txt", true);
 //        fw.write("Amount of peaks," + "Iterations," + "Time in nanoseconds" + "\n");
 //        fw.flush();
         while(gp.hasNext()){
             ArrayList<Peak> peaks = gp.next();
-            fw.write(ConvexHull.solve((peaks)));
+            ArrayList<String> toWrite = ConvexHull.solve((peaks));
+            fw.write(toWrite.get(0));
+            fw1.write(toWrite.get(1));
+            fw1.flush();
             fw.flush();
         }
+        fw1.close();
+        fw.close();
     }
 }
